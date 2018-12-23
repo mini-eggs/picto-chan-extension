@@ -1,0 +1,17 @@
+{
+  "name": "Picto Chan",
+  "version": "0.0.1",
+  "description": "Image and video viewer for 4channels/4chan.",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://boards.4chan.org/*/*/*/*",
+        "*://boards.4chan.org/*/*/*",
+        "*://boards.4channel.org/*/*/*/*",
+        "*://boards.4channel.org/*/*/*"
+      ],
+      "js": ["dist/main.js"]
+    }
+  ],
+  "manifest_version": 2
+}

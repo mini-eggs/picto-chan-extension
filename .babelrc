@@ -1,0 +1,3 @@
+{
+  "plugins": ["css-modules", "@babel/plugin-transform-runtime"]
+}
