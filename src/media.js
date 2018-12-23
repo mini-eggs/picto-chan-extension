@@ -26,20 +26,16 @@ export default item => {
   let el = createElement("div")
     .setAttribute("class", classes.container)
     .appendChild(
-      (() => {
-        if (video.includes(item.ext)) {
-          return createElement("video")
+      video.includes(item.ext)
+        ? createElement("video")
             .setAttribute("id", id)
             .setAttribute("autoplay", true)
             .setAttribute("loop", true)
             .setAttribute("style", `background-image: url(${item.sml})`)
-            .setAttribute("src", item.big);
-        } else {
-          return createElement("img")
+            .setAttribute("src", item.big)
+        : createElement("img")
             .setAttribute("style", `background-image: url(${item.sml})`)
-            .setAttribute("src", item.big);
-        }
-      })()
+            .setAttribute("src", item.big)
     );
 
   bus.on("download", () => {

@@ -11,19 +11,7 @@ let classes = styles`
     left: 0;
     width: 100%;
     height: 100%;
-    background: black; 
-
-    > img {
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    background: black;
   }
 `;
 
@@ -50,14 +38,9 @@ export default () => {
 
   let render = () => {
     let current = posts[index];
-
-    el = createElement("div").setAttribute("class", classes.arena);
-
-    if (current) {
-      el.appendChild(createMedia(current));
-    }
-
-    return el;
+    return (el = createElement("div")
+      .setAttribute("class", classes.arena)
+      .appendChild(current ? createMedia(current) : createElement("div")));
   };
 
   return render();

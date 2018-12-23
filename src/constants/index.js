@@ -30,17 +30,20 @@ export let uni = () =>
     .split("-")
     .join("_");
 
-export let fetchPosts = async () => {
-  let [_, board, __, thread] = location.pathname.split("/");
-  let res = await request(`//a.4cdn.org/${board}/thread/${thread}.json`);
-  let posts = res.posts
-    .filter(item => !!item.tim && !!item.ext)
-    .map(item => ({
-      ...item,
-      big: `http://i.4cdn.org/${board}/${item.tim}${item.ext}`,
-      sml: `http://i.4cdn.org/${board}/${item.tim}s.jpg`
-    }));
-  return posts;
+export let fetchPosts = () => {
+  return new Promise(resolve => {
+    let [_, board, __, thread] = location.pathname.split("/");
+    request(`//a.4cdn.org/${board}/thread/${thread}.json`).then(res => {
+      let posts = res.posts
+        .filter(item => !!item.tim && !!item.ext)
+        .map(item => ({
+          ...item,
+          big: `//i.4cdn.org/${board}/${item.tim}${item.ext}`,
+          sml: `//i.4cdn.org/${board}/${item.tim}s.jpg`
+        }));
+      resolve(posts);
+    });
+  });
 };
 
 export let eventStop = f => e => {
