@@ -2,6 +2,7 @@ import bus from "busa";
 import createElement from "ogle-tr-122b";
 import { fetchPosts } from "./constants";
 import createMedia from "./media";
+import preload from "image-preload";
 
 let classes = styles`
   .arena {
@@ -25,6 +26,7 @@ export default () => {
     bus.on("right", move(1, 0));
     bus.on("left", move(-1, posts.length - 1));
     el.replaceWith(render());
+    preload(res.filter(item => [".png", ".jpg", ".jpeg", ".gif"].includes(item.ext)).map(item => item.big));
   });
 
   let move = (dir, backup) => () => {

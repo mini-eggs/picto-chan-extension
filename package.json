@@ -1,8 +1,9 @@
 {
   "dependencies": {
     "busa": "0.0.1",
+    "image-preload": "^1.0.6",
     "keybinds": "^1.1.1",
-    "ogle-tr-122b": "0.0.2"
+    "ogle-tr-122b": "0.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -11,6 +12,6 @@
   },
   "scripts": {
     "start": "parcel watch src/main.js -o dist/main.js",
-    "build": "parcel build src/main.js -o dist/main.js --experimental-scope-hoisting --detailed-report"
+    "build": "parcel build src/main.js -o dist/main.js --detailed-report"
   }
 }
