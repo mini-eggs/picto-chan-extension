@@ -3,6 +3,7 @@
     "busa": "0.0.1",
     "image-preload": "^1.0.6",
     "keybinds": "^1.1.1",
+    "mouse-activity": "^1.0.2",
     "ogle-tr-122b": "0.0.3"
   },
   "devDependencies": {

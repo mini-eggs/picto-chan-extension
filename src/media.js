@@ -38,6 +38,20 @@ export default item => {
             .setAttribute("src", item.big)
     );
 
+  bus.on("mouseActive", () => {
+    if (document.contains(el) && video.includes(item.ext)) {
+      let vid = Element.prototype.querySelector.call(el, "video");
+      vid.setAttribute("controls", "controls");
+    }
+  });
+
+  bus.on("mouseInactive", () => {
+    if (document.contains(el) && video.includes(item.ext)) {
+      let vid = Element.prototype.querySelector.call(el, "video");
+      vid.removeAttribute("controls");
+    }
+  });
+
   bus.on("download", () => {
     /**
      * This doesn't work anymore?
