@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "busa": "0.0.1",
+    "busa": "0.0.3",
     "image-preload": "^1.0.6",
     "keybinds": "^1.1.1",
     "mouse-activity": "^1.0.2",

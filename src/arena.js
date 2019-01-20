@@ -6,7 +6,7 @@ import preload from "image-preload";
 
 let classes = styles`
   .arena {
-    z-index: 1;
+    z-index: 999999;
     position: fixed;
     top: 0;
     left: 0;

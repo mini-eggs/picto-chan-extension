@@ -15,10 +15,15 @@ let classes = styles`
 export default () => {
   let el = createElement("div").setAttribute("class", classes.app);
 
+  let previousOverflow;
+
   bus.on("toggleDisplay", () => {
     if (el.firstChild) {
+      document.body.style.overflow = previousOverflow;
       el.removeChild(el.firstChild);
     } else {
+      previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
       el.appendChild(createArena());
     }
   });
